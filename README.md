@@ -1,2 +1,2 @@
 # Calculator
-A basic Online Calculator
+A basic online calculator
