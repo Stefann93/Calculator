@@ -4,35 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <!--#region Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <!--#endregion Font -->
     <title>Calculator</title>
 </head>
 <body>
+    <div class="container">
     <div class="calculatorContainer">
         <div class="calculator">
-            <div class="display"></div>
+            <div class="display">
+                <div class="result">125</div>
+                <div class="digits">100 + 25</div>
+            </div>
+            <div class="power">
+            <div class="status"></div>
+            <button class="powerBtn"><img src="./images/power.png" alt="Power Button" /></button>
+            </div>
             <div class="buttons">
-                <button id="btnSeven" class="key"></button>
-                <button id="btnEight" class="key"></button>
-                <button id="btnNine" class="key"></button>
-                <button id="btnAC" class="key"></button>
-                <button id="btnC" class="key"></button>
-                <button id="btnFour" class="key"></button>
-                <button id="btnFive" class="key"></button>
-                <button id="btnSix" class="key"></button>
-                <button id="btnPlus" class="key"></button>
-                <button id="btnMinus" class="key"></button>
-                <button id="btnOne" class="key"></button>
-                <button id="btnTwo" class="key"></button>
-                <button id="btnThree" class="key"></button>
-                <button id="btnTimes" class="key"></button>
-                <button id="btnDevide" class="key"></button>
-                <button id="btnPosNeg" class="key"></button>
-                <button id="btnZero" class="key"></button>
-                <button id="btnComma" class="key"></button>
-                <button id="btnEquals" class="key"></button>
+                <button id="btnSeven" class="key">7</button>
+                <button id="btnEight" class="key">8</button>
+                <button id="btnNine" class="key">9</button>
+                <button id="btnAC" class="key specialKey">AC</button>
+                <button id="btnC" class="key specialKey">C</button>
+                <button id="btnFour" class="key">4</button>
+                <button id="btnFive" class="key">5</button>
+                <button id="btnSix" class="key">6</button>
+                <button id="btnPlus" class="key specialKey">+</button>
+                <button id="btnMinus" class="key specialKey">-</button>
+                <button id="btnOne" class="key">1</button>
+                <button id="btnTwo" class="key">2</button>
+                <button id="btnThree" class="key">3</button>
+                <button id="btnTimes" class="key specialKey">X</button>
+                <button id="btnDevide" class="key specialKey">/</button>
+                <button id="btnZero" class="key">0</button>
+                <button id="btnEquals" class="key doubleKey specialKey">=</button>
+                <button id="btnComma" class="key specialKey">.</button>
+                <button id="btnPosNeg" class="key specialKey">+/-</button>
             </div>
         </div>
     </div>
-    <div class="Footer">Stefan Ilic&copy;</div>
+</div>
+<div class="footer">
+    <a class="github" href="https://github.com/Stefann93">Stefan Ilic &copy;</a>
+</div>
 </body>
 </html>
