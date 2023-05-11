@@ -8,8 +8,9 @@ const calcResult = document.querySelector(".result");
 const ac = document.querySelector("#ac");
 const c = document.querySelector("#c");
 const sign = document.querySelector("#sign")
+const comma = document.querySelector("#comma");
 
-let num1 = '', num2 = '', plusMinus = "+", isCalcOn = false, deletedOnce = false;
+let num1 = '', num2 = '', plusMinus = "+", isCalcOn = false;
 let result, operand;
 powerButton.addEventListener("click", function () {
     if (isCalcOn == false) {
@@ -44,10 +45,12 @@ operands.forEach(element =>
             operand = element.textContent;
             num1 = result;
             digits.textContent = `${num1} ${operand}`;
+            num2 = '';
         }
         else if (isCalcOn == true && num1 != '') {
             operand = element.textContent;
             digits.textContent = `${num1} ${operand}`;
+            num2 = '';
         }
     }));
 
@@ -78,6 +81,20 @@ sign.addEventListener("click", function () {
             digits.textContent = num1;
             plusMinus = "+";
         }
+    }
+});
+comma.addEventListener("click", function () {
+    if (operand == null && num1.toString().includes('.') == false && result != null) {
+        result += ".";
+        digits.textContent = `${result}`
+    }
+    else if (operand == null && num1.toString().includes('.') == false) {
+        num1 += ".";
+        digits.textContent = `${num1}`
+    }
+    else if (operand != null && num2.toString().includes('.') == false) {
+        num2 += ".";
+        digits.textContent = `${num1} ${operand} ${num2}`;
     }
 });
 
