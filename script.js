@@ -9,7 +9,7 @@ const ac = document.querySelector("#ac");
 const c = document.querySelector("#c");
 const sign = document.querySelector("#sign")
 
-let num1 = '', num2 = '', plusMinus = "+", isCalcOn = false;
+let num1 = '', num2 = '', plusMinus = "+", isCalcOn = false, deletedOnce = false;
 let result, operand;
 powerButton.addEventListener("click", function () {
     if (isCalcOn == false) {
@@ -24,7 +24,10 @@ powerButton.addEventListener("click", function () {
 numbers.forEach(number =>
     number.addEventListener('click', function () {
         if (isCalcOn == true) {
-            if (operand == null) {
+            if (operand == null && result != null) {
+                result += number.textContent;
+                digits.textContent = result;
+            } else if (operand == null) {
                 num1 += number.textContent;
                 digits.textContent = num1;
             }
@@ -37,7 +40,12 @@ numbers.forEach(number =>
     ));
 operands.forEach(element =>
     element.addEventListener("click", function () {
-        if (isCalcOn == true && num1 != '') {
+        if (isCalcOn == true && result != null) {
+            operand = element.textContent;
+            num1 = result;
+            digits.textContent = `${num1} ${operand}`;
+        }
+        else if (isCalcOn == true && num1 != '') {
             operand = element.textContent;
             digits.textContent = `${num1} ${operand}`;
         }
@@ -116,18 +124,20 @@ function AC() {
 }
 function C() {
     if (operand != null && num2 != '') {
-        num2 = num2.slice(0, -1)
-        digits.textContent = `${num1} ${operand} ${num2}`
-        console.log("1");
+        num2 = num2.slice(0, -1);
+        digits.textContent = `${num1} ${operand} ${num2}`;
     }
     else if (operand != null && num2 == '') {
-        operand = null
-        digits.textContent = `${num1}`
-        console.log("2");
+        operand = null;
+        digits.textContent = `${num1}`;
     }
     else if (operand == null && result == null) {
-        num1 = num1.slice(0, -1)
-        digits.textContent = `${num1}`
-        console.log("3");
+        num1 = num1.toString().slice(0, -1);
+        digits.textContent = `${num1}`;
+    }
+    else if (operand == null && result != null) {
+        result = result.toString().slice(0, -1);
+        num1 = result;
+        digits.textContent = `${num1}`;
     }
 }
