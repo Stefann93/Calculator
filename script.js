@@ -44,7 +44,10 @@ operands.forEach(element =>
     }));
 
 equals.addEventListener("click", function () {
-    if (operand != null && num1 != '' && num2 != '')
+    if (num2 == 0 && num2 != '') {
+        window.alert("You can't divide by 0!");
+    }
+    else if (operand != null && num1 != '' && num2 != '')
         switch (operand) {
             case "+": Add(num1, num2); calcResult.textContent = result; break;
             case "-": Subtract(num1, num2); calcResult.textContent = result; break;
@@ -112,6 +115,19 @@ function AC() {
     plusMinus = "+";
 }
 function C() {
-    let str = digits.textContent.slice(0, -1);
-    digits.textContent = str;
+    if (operand != null && num2 != '') {
+        num2 = num2.slice(0, -1)
+        digits.textContent = `${num1} ${operand} ${num2}`
+        console.log("1");
+    }
+    else if (operand != null && num2 == '') {
+        operand = null
+        digits.textContent = `${num1}`
+        console.log("2");
+    }
+    else if (operand == null && result == null) {
+        num1 = num1.slice(0, -1)
+        digits.textContent = `${num1}`
+        console.log("3");
+    }
 }
